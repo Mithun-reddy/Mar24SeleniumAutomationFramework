@@ -8,14 +8,25 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class BaseTest {
 	public static WebDriver driver;
+	public static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
+	
+	public static void setDriver(String browserName,  boolean headLess) {
+		WebDriver driver = BaseTest.getBrowserDriver(browserName, false);
+		threadLocalDriver.set(driver);
+	}
+	
+	public static WebDriver getDriver() {
+		return threadLocalDriver.get();
+	}
+	
+	
 
-	public static WebDriver getDriver(String bName, boolean headLess) {
+	public static WebDriver getBrowserDriver(String bName, boolean headLess) {
 
 		bName = bName.toLowerCase();
-		
+
 		switch (bName) {
 		case "chrome":
-
 			if (headLess) {
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--headless", "--diable-gpu");
