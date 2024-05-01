@@ -8,21 +8,16 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
 	
 	public LoginPage(WebDriver driver) {
-		
 		PageFactory.initElements(driver, this);
-	
 	}
 	
-	
-	
-	
-	@FindBy(id = "useremail")
+	@FindBy(id = "username")
 	public WebElement username;
 	
 	@FindBy(id = "password")
 	public WebElement password;
 	
-	@FindBy(id = "login")
+	@FindBy(id = "Login")
 	public WebElement loginButton;
 	
 	public void loginToSFDC(String userEmail, String passWord) {

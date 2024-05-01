@@ -1,5 +1,6 @@
 package tests;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -17,6 +18,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
+import utils.DataUtils;
 
 public class LoginTest extends BaseTest {
 	
@@ -39,11 +41,33 @@ public class LoginTest extends BaseTest {
 	}
 	
 	@Test
-	public void verifyLoginWithCorrectCredentials() {
-		
+	public void verifyLoginWithCorrectCredentials() throws IOException {
 		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		driver.get(DataUtils.readLoginTestData("app.url"));
+		lp.username.sendKeys(DataUtils.readLoginTestData("valid.username"));
+		lp.password.sendKeys(DataUtils.readLoginTestData("valid.password"));
+		lp.loginButton.click();
+		driver.quit();
+	}
+//	@Test
+	public void verifyLoginWithCorrectCredentials1() {
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
 		driver.get("https://login.salesforce.com");
-		
-		
+		lp.username.sendKeys("jul22.mithun@ta.com");
+		lp.password.sendKeys("Sfdc@2024");
+		lp.loginButton.click();
+		driver.quit();
+	}
+//	@Test
+	public void verifyLoginWithCorrectCredentials2() {
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		driver.get("https://login.salesforce.com");
+		lp.username.sendKeys("jul22.mithun@ta.com");
+		lp.password.sendKeys("Sfdc@2024");
+		lp.loginButton.click();
+		driver.quit();
 	}
 }
