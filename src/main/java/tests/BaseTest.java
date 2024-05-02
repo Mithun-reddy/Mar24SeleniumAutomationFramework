@@ -18,13 +18,9 @@ public class BaseTest {
 	public static WebDriver getDriver() {
 		return threadLocalDriver.get();
 	}
-	
-	
 
 	public static WebDriver getBrowserDriver(String bName, boolean headLess) {
-
 		bName = bName.toLowerCase();
-
 		switch (bName) {
 		case "chrome":
 			if (headLess) {
@@ -48,9 +44,7 @@ public class BaseTest {
 			driver = null;
 			System.out.println("You are only allowed to configure with chrome, safari and edge");
 		}
-
 		return driver;
-
 	}
 
 }

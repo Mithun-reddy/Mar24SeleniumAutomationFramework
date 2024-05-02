@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.LoginTest">
+      <class name="tests.UserMenuTest">
         <methods>
-          <include name="test2"/>
+          <include name="verifyMyProfile_TC06"/>
           <include name="postCondtions"/>
           <include name="preCondtions"/>
-          <include name="setupDriver"/>
-          <include name="test1" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- tests.LoginTest -->
+      </class> <!-- tests.UserMenuTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends BasePage{
 	
 	public LoginPage(WebDriver driver) {
-		PageFactory.initElements(driver, this);
+		super(driver);
 	}
 	
 	@FindBy(id = "username")
@@ -19,6 +19,21 @@ public class LoginPage {
 	
 	@FindBy(id = "Login")
 	public WebElement loginButton;
+	
+	@FindBy(xpath = "//*[@id='rememberUn']")
+	public WebElement rememberMe;
+
+	@FindBy(id = "error")
+	public WebElement errorMessage;
+
+	@FindBy(partialLinkText = "Forgot")
+	public WebElement forgotPassword;
+
+	@FindBy(id = "idcard-identity")
+	public WebElement savedUsername;
+
+	@FindBy(id = "un")
+	public WebElement forgotUsername;
 	
 	public void loginToSFDC(String userEmail, String passWord) {
 		this.username.sendKeys(userEmail);

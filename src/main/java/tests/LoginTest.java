@@ -18,6 +18,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
+import utils.CommonUtils;
 import utils.DataUtils;
 
 public class LoginTest extends BaseTest {
@@ -47,6 +48,7 @@ public class LoginTest extends BaseTest {
 		driver.get(DataUtils.readLoginTestData("app.url"));
 		lp.username.sendKeys(DataUtils.readLoginTestData("valid.username"));
 		lp.password.sendKeys(DataUtils.readLoginTestData("valid.password"));
+		CommonUtils.captureScreenShot(driver);
 		lp.loginButton.click();
 		driver.quit();
 	}
