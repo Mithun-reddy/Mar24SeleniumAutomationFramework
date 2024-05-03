@@ -5,10 +5,34 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import constants.FileConstants;
 
 public class BaseTest {
 	public static WebDriver driver;
 	public static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
+	public static ExtentReports extent;
+	public static ThreadLocal<ExtentTest> threadExtentTest = new ThreadLocal<ExtentTest>();
+	public static ExtentTest test;
+	
+	@BeforeSuite
+	public void doConfiguration() {
+		extent = new ExtentReports();
+		ExtentSparkReporter sparkReporter = new ExtentSparkReporter(FileConstants.REPORT_PATH);
+		extent.attachReporter(sparkReporter);
+
+	}
+	
+	@AfterSuite
+	public void tearDownConfig() {
+		extent.flush();
+	}
 	
 	public static void setDriver(String browserName,  boolean headLess) {
 		WebDriver driver = BaseTest.getBrowserDriver(browserName, false);
