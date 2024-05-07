@@ -1,5 +1,7 @@
 package tests;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,6 +22,7 @@ public class BaseTest {
 	public static ExtentReports extent;
 	public static ThreadLocal<ExtentTest> threadExtentTest = new ThreadLocal<ExtentTest>();
 	public static ExtentTest test;
+	public static Logger logger = LogManager.getLogger("BaseTest");
 	
 	@BeforeSuite
 	public void doConfiguration() {
@@ -66,6 +69,7 @@ public class BaseTest {
 
 		default:
 			driver = null;
+			logger.error("Driver Configuration failed");
 			System.out.println("You are only allowed to configure with chrome, safari and edge");
 		}
 		return driver;

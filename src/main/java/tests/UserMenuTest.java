@@ -46,7 +46,6 @@ public class UserMenuTest extends BaseTest {
 		Assert.assertTrue(ump.verifyCreatePost(driver, "Hello JAva"), "Post should be created");
 		Assert.assertTrue(ump.verifyFileUpload(driver, FileConstants.FILE_PATH), "File should be uploaded successfully");
 		Assert.assertTrue(ump.verifyPhotoUpload(driver, FileConstants.IMAGE_PATH), "Photo should be uploaded successfully");
-		driver.quit();
 	}
 	
 	

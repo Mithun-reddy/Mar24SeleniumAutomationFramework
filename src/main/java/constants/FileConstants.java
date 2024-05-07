@@ -11,7 +11,7 @@ public class FileConstants {
 	public static final String FILE_PATH = 
 			System.getProperty("user.dir")+"/src/main/resources/SampleDoc.xlsx";
 	public static final String IMAGE_PATH = 
-			System.getProperty("user.dir")+"/src/main/java/reports/sample.PNG";
+			System.getProperty("user.dir")+"/src/main/java/reports/20240507213610.PNG";
 	public static final String REPORT_PATH = 
 			System.getProperty("user.dir")+"/src/main/java/reports/"+CommonUtils.getTimeStamp()+".html";
 }

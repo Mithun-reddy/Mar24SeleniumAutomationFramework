@@ -214,12 +214,16 @@ public class UserMenuPage extends BasePage {
 
 	public boolean selectUserMenuOption(WebDriver driver, String option) {
 		boolean isOptionVerified = false;
+		logger.debug("Selecting an user menu option: "+option);
 		WebElement userMenuOption = driver.findElement(By.xpath("//*[text()='" + option + "']"));
 		if (WaitUtils.waitForElement(driver, userMenuOption)) {
+			logger.debug(option+" was visible");
 			userMenuOption.click();
+			logger.debug(option+" was clicked");
 			isOptionVerified = true;
 		} else {
 			System.out.println(option + " Option is not visible");
+			logger.debug(option+" Could not be selected");
 		}
 		return isOptionVerified;
 	}

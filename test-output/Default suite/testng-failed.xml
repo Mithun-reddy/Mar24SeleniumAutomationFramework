@@ -6,8 +6,10 @@
       <class name="tests.UserMenuTest">
         <methods>
           <include name="verifyMyProfile_TC06"/>
+          <include name="tearDownConfig"/>
           <include name="postCondtions"/>
           <include name="preCondtions"/>
+          <include name="doConfiguration"/>
         </methods>
       </class> <!-- tests.UserMenuTest -->
     </classes>

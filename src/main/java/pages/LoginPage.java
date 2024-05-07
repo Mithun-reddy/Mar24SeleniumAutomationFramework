@@ -36,9 +36,11 @@ public class LoginPage extends BasePage{
 	public WebElement forgotUsername;
 	
 	public void loginToSFDC(String userEmail, String passWord) {
+		logger.info("Siging in to application");
 		this.username.sendKeys(userEmail);
 		this.password.sendKeys(passWord);
 		this.loginButton.click();
+		logger.info("Should be signed in to application");
 	}
 	
 	
