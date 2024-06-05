@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="methods" name="Suite">
+<suite thread-count="3" parallel="methods" name="Suite">
   <test name="Test">
     <classes>
+      <class name="tests.LoginTest"/>
       <class name="tests.LoginTest"/>
     </classes>
   </test> <!-- Test -->
